@@ -1,4 +1,4 @@
-# HUGO XMIN
+# HUGO Blue Penguin Dark
 
 ## _Keep it simple, but not simpler_
 
