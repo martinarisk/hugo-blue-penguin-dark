@@ -25,4 +25,4 @@ find . -not -path '*/exampleSite/*' \( -name '*.html' -o -name '*.css' \) | xarg
 
 I can certainly further reduce the code, for example, by eliminating the CSS, but I believe a tiny bit of CSS can greatly improve readability. You cannot really find many CSS frameworks that only contain 50 lines of code.
 
-[![Screenshot](https://github.com/yihui/hugo-xmin/raw/master/images/screenshot.png)](https://xmin.yihui.org)
+[![Screenshot](https://camo.githubusercontent.com/7758d9b9d6d27adddf82641177de980a80b43671cca8255de3af8b03bd144f45/68747470733a2f2f74796c65722d636172722e636f6d2f696d616765732f6674702f6f75742e706e67)](https://camo.githubusercontent.com/7758d9b9d6d27adddf82641177de980a80b43671cca8255de3af8b03bd144f45/68747470733a2f2f74796c65722d636172722e636f6d2f696d616765732f6674702f6f75742e706e67)
