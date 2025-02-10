@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode | default "en-us" }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+    <link rel="stylesheet" href="{{ "css/main.css" | absURL }}">
+    <link rel="stylesheet" href="{{ "css/pygments.css" | absURL }}">
+    <link rel="stylesheet" href="{{ "css/style.css" | absURL }}">
+    {{ block "head" . }}
+    {{ end }}
+</head>
+<body>
+    {{ partial "header.html" . }}
+
+    <main id="content">
+        {{ block "main" . }}
+        {{ end }}
+    </main>
+
+    {{ partial "footer.html" . }}
+</body>
+</html>

@@ -1,13 +1,10 @@
-{{ partial "header.html" . }}
-
-<h1>{{ .Title }}</h1>
-
-<ul class="terms">
-  {{ range .Pages }}
-  <li>
-    <a href="{{ .RelPermalink }}">{{ .Title }}</a> ({{ len .Pages }})
-  </li>
-  {{ end }}
+{{ define "main" }}
+<h1>Tags</h1>
+<ul>
+    {{ range $name, $taxonomy := .Data.Terms.Alphabetical }}
+    <li>
+        <a href="{{ $.Site.BaseURL }}tags/{{ $name | urlize }}">{{ $name }}</a> ({{ len $taxonomy.Pages }})
+    </li>
+    {{ end }}
 </ul>
-
-{{ partial "footer.html" . }}
+{{ end }}

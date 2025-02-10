@@ -1,9 +1,7 @@
-  <footer>
-  {{ partial "foot_custom.html" . }}
-  {{ with .Site.Params.footer }}
-  <hr/>
-  {{ replace . "{Year}" now.Year | markdownify }}
-  {{ end }}
-  </footer>
-  </body>
-</html>
+<footer>
+    <p>&copy; {{ now.Format "2006" }} {{ .Site.Title }}<br>
+    Powered by <a href="https://gohugo.io/">Hugo</a> | Theme: Blue Penguin Dark</p>
+
+    <!-- Placeholder for custom features like comments -->
+    {{ partial "foot_custom.html" . }}
+</footer>

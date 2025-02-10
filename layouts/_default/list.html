@@ -1,20 +1,29 @@
-{{ partial "header.html" . }}
+{{ define "main" }}
+    <div class="posts">
+        {{ range .Paginator.Pages }}
+        <article class="post">
+            <header>
+                <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+                <div class="info">
+                    <span class="date">{{ .Date.Format "Jan 2, 2006" }}</span>
+                    {{ if .Params.tags }}
+                    <span class="tags">
+                        {{ range .Params.tags }}
+                        <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}" class="tags">{{ . }}</a>
+                        {{ end }}
+                    </span>
+                    {{ end }}
+                </div>
+            </header>
+            <section>
+                {{ .Summary }}
+                {{ if .Truncated }}
+                <a href="{{ .Permalink }}">Read more...</a>
+                {{ end }}
+            </section>
+        </article>
+        {{ end }}
+    </div>
 
-{{if not .IsHome }}
-<h1>{{ .Title | markdownify }}</h1>
+    {{ template "_internal/pagination.html" . }}
 {{ end }}
-
-{{ .Content }}
-
-<ul>
-  {{ $pages := .Pages }}
-  {{ if .IsHome }}{{ $pages = .Site.RegularPages }}{{ end }}
-  {{ range (where $pages "Section" "!=" "") }}
-  <li>
-    <span class="date">{{ .Date.Format "2006/01/02" }}</span>
-    <a href="{{ .RelPermalink }}">{{ .Title | markdownify }}</a>
-  </li>
-  {{ end }}
-</ul>
-
-{{ partial "footer.html" . }}
